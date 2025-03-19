@@ -56,5 +56,9 @@ Route::controller(AppointmentController::class)->group(function (){
     //Appointment Creation 
     Route::post('createAppointment','createAppointment');
 });
+//view Appointments
+Route::get('/patient/{id}/appointments', [PatientController::class, 'viewAppointments']);
+
+
 
 

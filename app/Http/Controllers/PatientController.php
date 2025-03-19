@@ -13,18 +13,7 @@ class PatientController extends Controller
         return response()->json(Patient::all());
     }
 
-    public function bookAppointment(Request $request)
-    {
-        $validated = $request->validate([
-            'doctor_id' => 'required|exists:doctors,id',
-            'patient_id' => 'required|exists:patients,id',
-            'appointment_time' => 'required|date_format:Y-m-d H:i:s|after:now',
-        ]);
-
-        $appointment = Appointment::create($validated);
-
-        return response()->json($appointment, 201);
-    }
+   
 
     public function viewAppointments($patientId)
     {

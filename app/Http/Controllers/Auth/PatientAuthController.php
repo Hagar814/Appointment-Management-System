@@ -19,7 +19,7 @@ class PatientAuthController extends Controller
             'email'=>['required','email','max:255','unique:'.Patient::class],
             'password'=>['required','confirmed',Rules\Password::defaults()],
             'phone_number' => 'required|string|max:15', 
-            //'captcha' => 'required|captcha',
+            'captcha' => 'required|captcha',
             
             
         ]);
