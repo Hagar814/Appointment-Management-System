@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController ;
 use App\Http\Controllers\DoctorController ;
 use App\Http\Controllers\PatientController ;
+use App\Http\Controllers\AppointmentController ;
 use App\Http\Controllers\Auth\PatientAuthController ;
 use App\Http\Controllers\Auth\DoctorAuthController ;
 
@@ -29,6 +30,12 @@ Route::controller(DoctorAuthController::class)->group(function (){
 //admin
 Route::controller(AdminController::class)->group(function (){
     Route::post('addDoctor','addDoctor');
+});
+
+//appointment 
+Route::controller(AppointmentController::class)->group(function (){
+    //Appointment Creation 
+    Route::post('createAppointment','createAppointment');
 });
 
 
