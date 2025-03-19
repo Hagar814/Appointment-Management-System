@@ -39,6 +39,11 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+
+        ],
+        'patient' => [
+            'driver' => 'session',
+            'provider' => 'patients',
         ],
     ],
 
@@ -69,6 +74,10 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'patients' => [ // Define the provider for Patient model
+        'driver' => 'eloquent',
+        'model' => App\Models\Patient::class, // Use the correct model
+    ],
     ],
 
     /*
