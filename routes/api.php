@@ -8,7 +8,7 @@ use App\Http\Controllers\PatientController ;
 use App\Http\Controllers\AppointmentController ;
 use App\Http\Controllers\Auth\PatientAuthController ;
 use App\Http\Controllers\Auth\DoctorAuthController ;
-
+use App\Http\Controllers\Auth\AdminAuthController ;
 // Route::middleware('auth:sanctum')->group(function () {
 //     // Protected routes
 //     Route::get('/admin', [AdminController::class, 'index']);
@@ -27,9 +27,17 @@ Route::controller(DoctorAuthController::class)->group(function (){
 
 });
 
+//admin login
+Route::controller(AdminAuthController::class)->group(function (){
+    Route::post('login/admin','login');
+
+});
+
+
 //admin
 Route::controller(AdminController::class)->group(function (){
     Route::post('addDoctor','addDoctor');
+    Route::post('addAdmin','addAdmin');
 });
 
 //appointment 
