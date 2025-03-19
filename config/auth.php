@@ -45,6 +45,10 @@ return [
             'driver' => 'session',
             'provider' => 'patients',
         ],
+        'doctor' => [
+            'driver' => 'session',
+            'provider' => 'doctors',
+        ],
     ],
 
     /*
@@ -77,6 +81,10 @@ return [
         'patients' => [ // Define the provider for Patient model
         'driver' => 'eloquent',
         'model' => App\Models\Patient::class, // Use the correct model
+    ],
+    'doctors' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Doctor::class,
     ],
     ],
 

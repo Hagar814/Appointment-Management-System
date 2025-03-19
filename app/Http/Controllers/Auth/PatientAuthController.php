@@ -93,4 +93,5 @@ class PatientAuthController extends Controller
 
 //     return response()->json($appointment, 201);
 // }
+
 }
