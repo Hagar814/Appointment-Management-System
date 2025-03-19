@@ -9,12 +9,7 @@ use App\Http\Controllers\AppointmentController ;
 use App\Http\Controllers\Auth\PatientAuthController ;
 use App\Http\Controllers\Auth\DoctorAuthController ;
 use App\Http\Controllers\Auth\AdminAuthController ;
-// Route::middleware('auth:sanctum')->group(function () {
-//     // Protected routes
-//     Route::get('/admin', [AdminController::class, 'index']);
-//     Route::get('/doctor', [DoctorController::class, 'index']);
-//     Route::get('/patient', [PatientController::class, 'index']);
-// });
+
 //patient register and login
 Route::controller(PatientAuthController::class)->group(function (){
     Route::post('register','register');
@@ -36,7 +31,23 @@ Route::controller(AdminAuthController::class)->group(function (){
 
 //admin
 Route::controller(AdminController::class)->group(function (){
-    Route::post('addDoctor','addDoctor');
+    // Admin routes for doctors
+    Route::post('/admin/doctor/add', [AdminController::class, 'addDoctor']);
+    Route::get('/admin/doctors', [AdminController::class, 'listDoctors']);
+    Route::put('/admin/doctor/update/{id}', [AdminController::class, 'updateDoctor']);
+    Route::delete('/admin/doctor/delete/{id}', [AdminController::class, 'deleteDoctor']);
+
+    // Admin routes for patients
+    Route::get('/admin/patients', [AdminController::class, 'listPatients']);
+    Route::put('/admin/patient/update/{id}', [AdminController::class, 'updatePatient']);
+    Route::delete('/admin/patient/delete/{id}', [AdminController::class, 'deletePatient']);
+    
+    // Admin routes for appointments
+    Route::get('/admin/appointments', [AdminController::class, 'listAppointments']);
+    Route::post('/admin/appointments/{id}/status', [AdminController::class, 'updateAppointmentStatus']);
+    Route::delete('/admin/appointment/delete/{id}', [AdminController::class, 'deleteAppointment']);
+    
+    // Admin routes for appointments
     Route::post('addAdmin','addAdmin');
 });
 
