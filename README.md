@@ -33,10 +33,10 @@
    git clone https://github.com/Hagar814/Appointment-Management-System.git
    
 2. **install dependecies**:
-install Breeze API
-composer requir laravel/sactum
-composer require saprie/laravel-permission
-composer require mews/captcha
+- install Breeze API
+- composer requir laravel/sactum
+- composer require saprie/laravel-permission
+- composer require mews/captcha
 
 3. **in file .env**:
 DB_CONNECTION=mysql
