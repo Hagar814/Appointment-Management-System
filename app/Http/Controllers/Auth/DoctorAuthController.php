@@ -30,5 +30,14 @@ class DoctorAuthController extends Controller
         } else {
             return ApiResponse::sendResponse(401, 'Invalid credentials', null);
         }
+        
+    }
+    public function logout(Request $request)
+        {
+            $request->user()->currentAccessToken()->delete();
+            
+            return ApiResponse::sendResponse(200,'Admin Logged Out Successfully', []);
+        
+           
     }
 }

@@ -64,6 +64,15 @@ class PatientAuthController extends Controller
             return ApiResponse::sendResponse(401, 'Invalid credentials', null);
         }
     }
+
+public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        
+        return ApiResponse::sendResponse(200,'Admin Logged Out Successfully', []);
+    
+       
+}
 //     public function bookAppointmentAsGuest(Request $request)
 // {
 //     $validated = $request->validate([

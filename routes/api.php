@@ -14,17 +14,21 @@ use App\Http\Controllers\Auth\AdminAuthController ;
 Route::controller(PatientAuthController::class)->group(function (){
     Route::post('register','register');
     Route::post('login/patient','login');
+    Route::post('logout/patient','logout')->middleware('auth:sanctum');
+
 });
 
 //doctor login
 Route::controller(DoctorAuthController::class)->group(function (){
     Route::post('login/doctor','login');
+    Route::post('logout/doctor','logout')->middleware('auth:sanctum');
 
 });
 
 //admin login
 Route::controller(AdminAuthController::class)->group(function (){
     Route::post('login/admin','login');
+    Route::post('logout/admin','logout')->middleware('auth:sanctum');
 
 });
 
